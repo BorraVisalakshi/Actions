@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    name: Deploying to Local Tomcat
+    name: Deploying to Local Tomcat Server
     runs-on: self-hosted
 
     steps:
