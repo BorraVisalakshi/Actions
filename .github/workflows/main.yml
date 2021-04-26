@@ -19,7 +19,7 @@ jobs:
     - name: Step-1 Checkout the code
       uses: actions/checkout@v2
       
-    #Build the project with maven
+    #Build the project with maven build
     - name: Step-2 Build with Maven
       run: mvn clean install
       
