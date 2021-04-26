@@ -62,7 +62,7 @@
 				<configuration>
 					<url>http://localhost:5050/manager/text</url>
 					<server>TomcatServer</server>
-					<path>/Hello</path>
+					<path>/SampleWeb</path>
 				</configuration>
 			</plugin>
 		</plugins>
