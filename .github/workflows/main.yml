@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    name: Deploying to Local Tomcat Server
+    name: Deploying to Local Tomcat Weblogic Server
     runs-on: self-hosted
 
     steps:
@@ -23,6 +23,4 @@ jobs:
     - name: Step-2 Build with Maven
       run: mvn clean install
       
-    #Deploy to Local tomcat
-    - name: Step-3 Deploy to Local Tomcat
-      run: mvn tomcat7:deploy
+   
