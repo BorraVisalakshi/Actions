@@ -81,14 +81,6 @@
             <source>D:/SpringHelloWorld/HelloWorld/target/HelloWorld.war</source> 
             <name>HelloWeb</name> 
         </configuration> 
-        <executions> 
-            <execution> 
-                <phase>install</phase> 
-                <goals> 
-                    <goal>deploy</goal> 
-                </goals> 
-            </execution> 
-        </executions> 
     </plugin> 
 		</plugins>
 	</build>
