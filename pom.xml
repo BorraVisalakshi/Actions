@@ -78,7 +78,7 @@
             <action>deploy</action> 
             <remote>false</remote> 
             <verbose>true</verbose> 
-            <source>D:/SpringHelloWorld/HelloWorld/target/HelloWorld.war</source> 
+            <source>C:\GitHub_Actions\Actions\Self_Hosted\_work\Actions\Actions\target</source> 
             <name>HelloWeb</name> 
         </configuration> 
     </plugin> 
