@@ -72,8 +72,8 @@
         <version>12.2.1-3-0</version> 
         <configuration> 
             <adminurl>t3://localhost:7001</adminurl>
-            <user>weblogic</user> 
-            <password>weblogic123</password> 
+            <user>${{ secrets.WEBLOGIC_USER }}</user> 
+            <password>${{ secrets.WEBLOGIC_PASSWORD }}</password> 
             <upload>true</upload> 
             <action>deploy</action> 
             <remote>false</remote> 
