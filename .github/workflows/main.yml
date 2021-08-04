@@ -4,11 +4,8 @@
 name: Deploying to Tomcat Local
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
+  workflow_dispatch:
+  
 jobs:
   build:
     name: Deploying to Local Weblogic Server
