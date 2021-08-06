@@ -4,7 +4,7 @@
 name: Deploying to Weblogic Local
 
 on:
-  push:
+  workflow_dispatch:
   
 jobs:
   build:
