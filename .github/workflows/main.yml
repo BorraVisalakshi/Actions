@@ -24,7 +24,7 @@ jobs:
       id: read_property
       uses: Reedyuk/read-properties@v1.0.1
       with:
-       path: 'Actions/server.properties'
+       path: './src/main/file.properties'
        property: 'password'
 
     - name: Do something with your bumped release version
