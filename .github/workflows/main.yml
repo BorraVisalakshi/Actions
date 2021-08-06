@@ -22,10 +22,10 @@ jobs:
       
     - name: Read value from Properties-file
       id: read_property
-      uses: christian-draeger/read-properties@1.0.1
+      uses: Reedyuk/read-properties@v1.0.1
       with:
-       path: './server.properties'
-       property: 'username'
+       path: 'Actions/server.properties'
+       property: 'password'
 
     - name: Do something with your bumped release version
       run: echo ${{ steps.read_property.outputs.value }}
