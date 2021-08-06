@@ -22,7 +22,7 @@ jobs:
       
     - name: Read value from Properties-file
       id: read_property
-      uses: Reedyuk/read-properties@v1.0.1
+      uses: christian-draeger/read-properties@1.0.1
       with:
        path: './server.properties'
        property: 'username'
