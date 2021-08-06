@@ -4,7 +4,7 @@
 name: Deploying to Weblogic Local
 
 on:
-  workflow_dispatch:
+  push:
   
 jobs:
   build:
@@ -20,8 +20,14 @@ jobs:
     - name: Step-2 Build with Maven
       run: mvn clean install
       
-    #Deploy to Local Weblogic
-    - name: Step-3 Deploy to local Weblogic Server
-      run: mvn weblogic:deploy
-      
+    - name: Read value from Properties-file
+      id: read_property
+      uses: Reedyuk/read-properties@v1.0.1
+      with:
+       path: './server.properties'
+       property: 'username'
+
+    - name: Do something with your bumped release version
+      run: echo ${{ steps.read_property.outputs.value }}
+  # will print "the value of 'the.key.of.the.property'"
    
