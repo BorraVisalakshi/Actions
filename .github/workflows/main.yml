@@ -21,11 +21,10 @@ jobs:
       run: mvn clean install
       
     - name: Read value from Properties-file
-      id: read_property
-      uses: Reedyuk/read-properties@v1.0.1
+      uses: madhead/read-java-properties@latest
       with:
-       path: './src/main/file.properties'
-       property: 'password'
+       file: './src/main/file.properties'
+       all: true
 
     - name: Do something with your bumped release version
       run: echo ${{ steps.read_property.outputs.value }}
