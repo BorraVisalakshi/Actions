@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     name: Deploying to Local Weblogic Server
-    runs-on: windows-latest
+    runs-on: self-hosted
 
     steps:
     #Checking out the code
