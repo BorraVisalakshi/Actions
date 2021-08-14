@@ -40,7 +40,14 @@ jobs:
   #Move the Zip to D: drive
     - name: Step-6 Move Directory to D drive
       run: move-Item "WebApp.zip" "D:\Actions\"  -Force
-   
+    
+    - name: Run powershell
+      run: echo '::set-output name=SHELL::./welcome.ps1'
+      id: output-is
+      
+    - name: Get Value
+      run: echo "The Output is ${{ steps.output-is.outputs.SHELL }}"
+      
     - name: Set selected color
       run: echo '::set-output name=SELECTED_COLOR::green'
       id: random-color-generator
