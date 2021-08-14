@@ -41,3 +41,9 @@ jobs:
     - name: Step-6 Move Directory to D drive
       run: move-Item "WebApp.zip" "D:\Actions\"  -Force
    
+    - name: Set selected color
+      run: echo '::set-output name=SELECTED_COLOR::green'
+      id: random-color-generator
+    
+    - name: Get color
+      run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
