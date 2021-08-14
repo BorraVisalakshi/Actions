@@ -47,3 +47,4 @@ jobs:
     
     - name: Get color
       run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+      if: ${{ steps.random-color-generator.outputs.SELECTED_COLOR == 'red'}}
