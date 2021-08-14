@@ -39,5 +39,5 @@ jobs:
       
   #Move the Zip to D: drive
     - name: Step-6 Move Directory to D drive
-      run: move /y WebApp.zip U:\Actions
+      run: move /y WebApp.zip D:\Actions
    
