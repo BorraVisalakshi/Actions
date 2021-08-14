@@ -44,7 +44,7 @@ jobs:
       run: ./welcome.ps1
     
     - name: Set output value
-      run: echo '::set-output name=check::$output=./welcome.ps1
+      run: echo '::set-output name=check::$($output=./welcome.ps1)
       id: output-is
       
     - name: Get Value
