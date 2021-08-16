@@ -53,7 +53,7 @@ jobs:
   #Move the Zip to D: drive
     - name: Step-6 Move Directory to D drive
       run: move-Item "WebApp.zip" "D:\Actions\"  -Force
-      if: ${{ github.event.inputs.scan == '${{ steps.input_is.outputs.scan }}' }}
+      if: ${{ github.event.inputs.scan == '${{ github.event.inputs.scan}}' }}
     
     - name : Run powershell
       id: shell
