@@ -10,7 +10,10 @@ on:
        description: 'Send for scan'
        required: true
        default: ''
-      
+      cr:
+       description: 'Send for scan'
+       required: true
+       default: ''
   
 jobs:
   build:
@@ -54,6 +57,11 @@ jobs:
     - name: Step-6 Move Directory to D drive
       run: move-Item "WebApp.zip" "D:\Actions\"  -Force
       if: ${{ github.event.inputs.scan == ${{ github.event.inputs.scan}} }}
+   
+    - name: Step-10 Check Servicenow CR Number Status
+     # shell: pwsh
+      run: |
+            .\CRNum.ps1 -username ${{ secrets.SERVICENOW_USER }} -password ${{ secrets.SERVICENOW_PASSWORD }} -crnumber ${{ github.event.inputs.cr}}
     
     - name : Run powershell
       id: shell
