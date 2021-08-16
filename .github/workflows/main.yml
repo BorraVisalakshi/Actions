@@ -4,7 +4,13 @@
 name: Deploying to Weblogic Local
 
 on:
-  push:
+  workflow_dispatch:
+    inputs:
+      scan:
+       description: 'Send for scan'
+       required: true
+       default: ''
+      
   
 jobs:
   build:
@@ -37,9 +43,18 @@ jobs:
     - name: Step-5 Verify Directory
       run: dir
       
+    - name: Check user input
+      run: Write-Output "::set-output name=scan::$(${{ github.event.inputs.scan}})"
+      id: input_is
+    
+    - name: get Output
+      run: Write-Output "${{ steps.input_is.outputs.scan }}"
+    
   #Move the Zip to D: drive
     - name: Step-6 Move Directory to D drive
       run: move-Item "WebApp.zip" "D:\Actions\"  -Force
+      if: ${{ github.event.inputs.scan == 'yes' }}
+    
     - name : Run powershell
       id: shell
       run: |
