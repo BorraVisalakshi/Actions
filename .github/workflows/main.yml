@@ -50,11 +50,11 @@ jobs:
     
     - name: Set output value
       run: |
-            Write-Output "::set-output name=GREET::$(./welcome.ps1)"
+            Write-Output "::set-output = $(./welcome.ps1)"
       id: value
       
     - name: Get Value
-      run: Write-Output "${{ steps.value.outputs.GREET }}"
+      run: Write-Output "${{ steps.value.outputs }}"
       
     - name: Set selected color
       run: echo '::set-output name=SELECTED_COLOR::green'
