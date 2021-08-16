@@ -44,15 +44,19 @@ jobs:
       id: shell
       run: |
            $result = ./welcome.ps1
-           echo "::set-output name=ans::$(echo $result)"
+           Write-Output "::set-output name=GREET::$result"
+     #echo "::set-output name=ans::$(echo $result)"
            
     
     - name: Set output value
-      run: echo "::set-output name=ans::$result = ./welcome.ps1"
+      run: |
+            Write-Output "::set-output name=GREET::$($result= ./welcome.ps1)"
+    # echo "::set-output name=ans::$result = ./welcome.ps1"
+           
       id: output-is
       
     - name: Get Value
-      run: echo "The Output is ${{ steps.output-is.outputs.ans }}"
+      run: echo "The Output is ${{ steps.output-is.outputs.GREET }}"
       
     - name: Set selected color
       run: echo '::set-output name=SELECTED_COLOR::green'
