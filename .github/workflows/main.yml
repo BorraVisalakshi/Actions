@@ -54,7 +54,7 @@ jobs:
       id: value
       
     - name: Get Value
-      run: echo "The Output is ${{ steps.value.outputs.GREET }}"
+      run: echo ${{ steps.value.outputs.GREET }}
       
     - name: Set selected color
       run: echo '::set-output name=SELECTED_COLOR::green'
