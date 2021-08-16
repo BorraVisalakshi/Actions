@@ -44,7 +44,7 @@ jobs:
       id: shell
       run: |
            $result = ./welcome.ps1
-           echo ${{ steps.shell.outputs.result }}
+           echo '::set-output = ${{ steps.shell.outputs.result }}'
        
     
     - name: Set output value
