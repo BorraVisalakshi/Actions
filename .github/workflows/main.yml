@@ -62,7 +62,8 @@ jobs:
       run: move-Item "WebApp.zip" "${{ secrets.PATH }}"  -Force
       if: ${{ github.event.inputs.scan == 'yes' }}
    
-    
+    - name: Check output
+      run: echo "output is ${{ steps.cr.outputs.GREET }}"
     
     - name : Run powershell
       id: shell
