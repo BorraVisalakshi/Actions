@@ -41,7 +41,11 @@ jobs:
     - name: Step-6 Move Directory to D drive
       run: move-Item "WebApp.zip" "D:\Actions\"  -Force
     - name : Run powershell
-      run: $output=./welcome.ps1
+      id: shell
+      run: |
+           ./welcome.ps1
+            echo ${{ steps.shell.outputs }}
+       
     
     - name: Set output value
       run: echo '::set-output = $(./welcome.ps1)'
