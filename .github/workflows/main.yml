@@ -12,7 +12,7 @@ on:
        required: true
        default: ''
       cr:
-       description: 'Send for scan'
+       description: 'Enter CR Status'
        required: true
        default: ''
   
@@ -22,7 +22,7 @@ jobs:
     runs-on: self-hosted
     
     outputs:
-      value: ${{ steps.cr.outputs.GREET }}
+      value: ${{ steps.cr_status.outputs.GREET }}
 
     steps:
     #Checking out the code
@@ -63,7 +63,7 @@ jobs:
       if: ${{ github.event.inputs.scan == 'yes' }}
    
     - name: Check output
-      run: echo "output is ${{ steps.cr.outputs.GREET }}"
+      run: echo "output is ${{ steps.cr_status.outputs.GREET }}"
     
     - name : Run powershell
       id: shell
@@ -79,11 +79,11 @@ jobs:
       #Write-Output "::set-output = $($result)"
      # Write-Output "::set-output name=GREET::$result"
       #echo "::set-output name=url::https://google.com"
-      id: cr
+      id: cr_status
       
       
     - name: Step-10 Check Servicenow CR Number Status
-      if: ${{ steps.cr.outputs.GREET == 'Hello Vishali'}}
+      if: ${{ steps.cr_status.outputs.GREET == 'Hello Vishali'}}
       run: |
             .\CRNum.ps1 -username ${{ secrets.SERVICENOW_USER }} -password ${{ secrets.SERVICENOW_PASSWORD }} -crnumber ${{ github.event.inputs.cr}}    
       
