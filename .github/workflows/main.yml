@@ -6,6 +6,7 @@ name: Deploying to Weblogic Local
 on:
   workflow_dispatch:
     inputs:
+    
       scan:
        description: 'Send for scan'
        required: true
@@ -19,13 +20,16 @@ jobs:
   build:
     name: Deploying to Local Weblogic Server
     runs-on: self-hosted
+    
+    outputs:
+      value: ${{ steps.cr.outputs.GREET }}
 
     steps:
     #Checking out the code
     - name: Step-1 Checkout the code
       uses: actions/checkout@v2
       
-  
+   
     
   #Build with Maven Goals
     - name: Step-2 Build with Maven
@@ -66,15 +70,18 @@ jobs:
     - name : Run powershell
       id: shell
       run: |
-           $result = ./welcome.ps1
-           Write-Output "::set-output name=GREET::$result"
+           ./welcome.ps1
+     #Write-Output "::set-output name=GREET::$result"
      #echo "::set-output name=ans::$(echo $result)"
            
     
     - name: Set output value
       run: |
-            Write-Output "::set-output = $($result)"
-      id: value
+            Write-Output "::set-output name=GREET::$(./welcome.ps1)"
+      #Write-Output "::set-output = $($result)"
+     # Write-Output "::set-output name=GREET::$result"
+      #echo "::set-output name=url::https://google.com"
+      id: cr
       
     - name: Get Value
       run: Write-Output "${{ steps.value.outputs }}"
