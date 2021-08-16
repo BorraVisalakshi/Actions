@@ -43,8 +43,9 @@ jobs:
     - name : Run powershell
       id: shell
       run: |
-           ./welcome.ps1
-            echo ${{ steps.shell.outputs }}
+           $result = ./welcome.ps1
+           $string = Write-Output $result
+           echo ${{ steps.shell.outputs.result }}
        
     
     - name: Set output value
