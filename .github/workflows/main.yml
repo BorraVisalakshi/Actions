@@ -50,7 +50,7 @@ jobs:
     
     - name: Set output value
       run: |
-            Write-Output "::set-output = $(./welcome.ps1)"
+            Write-Output "::set-output = $($result)"
       id: value
       
     - name: Get Value
