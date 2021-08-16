@@ -44,7 +44,7 @@ jobs:
       run: dir
       
     - name: Check user input
-      run: Write-Output "::set-output name=scan::$(${{ github.event.inputs.scan}})"
+      run: echo "::set-output name=scan::${{ github.event.inputs.scan}}"
       id: input_is
     
     - name: get Output
