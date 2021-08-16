@@ -48,11 +48,11 @@ jobs:
            
     
     - name: Set output value
-      run: echo "::set-output name=ans::$(echo $result)"
+      run: echo "::set-output name=ans::$result = ./welcome.ps1"
       id: output-is
       
     - name: Get Value
-      run: echo "The Output is ${{ steps.shell.outputs.ans }}"
+      run: echo "The Output is ${{ steps.output-is.outputs.ans }}"
       
     - name: Set selected color
       run: echo '::set-output name=SELECTED_COLOR::green'
