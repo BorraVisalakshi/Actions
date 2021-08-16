@@ -21,8 +21,8 @@ jobs:
     name: Deploying to Local Weblogic Server
     runs-on: self-hosted
     
-    outputs:
-      value: ${{ steps.cr_status.outputs.GREET }}
+    #outputs:
+     # value: ${{ steps.cr_status.outputs.GREET }}
 
     steps:
     #Checking out the code
@@ -35,11 +35,7 @@ jobs:
     - name: Step-2 Build with Maven
       run: mvn clean install
       
-  # Upload to artifactory
-   # - name: Step-3 Upload to Artifactory
-   #   run:  Remove-item alias:curl;
-     #       curl -X PUT -u ${{ secrets.USERNAME_ARTIFACTORY }}:${{ secrets.PASSWORD_ARTIFACTORY }} -T C:\Users\s316735\GitHub_Actions\SelfHosted_runner\_work\MultiJobs_Pipeline\MultiJobs_Pipeline\target\HelloWorld.war "http://localhost:8082/artifactory/CG_AEP-libs-release-local/HelloWorld.war"
-
+ 
   #Zip the code
     - name: Step-4 Zip the Source code
       uses: papeloto/action-zip@v1
@@ -69,21 +65,14 @@ jobs:
       id: shell
       run: |
            ./welcome.ps1
-     #Write-Output "::set-output name=GREET::$result"
-     #echo "::set-output name=ans::$(echo $result)"
-           
     
     - name: Set output value
       run: |
             Write-Output "::set-output name=GREET::$(./welcome.ps1)"
-      #Write-Output "::set-output = $($result)"
-     # Write-Output "::set-output name=GREET::$result"
-      #echo "::set-output name=url::https://google.com"
       id: cr_status
       
       
     - name: Step-10 Check Servicenow CR Number Status
-      if: ${{ steps.cr_status.outputs.GREET == 'Hello Vishali'}}
       run: |
             .\CRNum.ps1 -username ${{ secrets.SERVICENOW_USER }} -password ${{ secrets.SERVICENOW_PASSWORD }} -crnumber ${{ github.event.inputs.cr}}    
       
