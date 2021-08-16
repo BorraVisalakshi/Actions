@@ -44,7 +44,6 @@ jobs:
       id: shell
       run: |
            $result = ./welcome.ps1
-           $string = Write-Output -InputObject $result
            echo ${{ steps.shell.outputs.result }}
        
     
