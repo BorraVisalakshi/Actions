@@ -55,7 +55,7 @@ jobs:
     
   #Move the Zip to D: drive
     - name: Step-6 Move Directory to D drive
-      run: move-Item "WebApp.zip" "D:\Actions\"  -Force
+      run: move-Item "WebApp.zip" "${{ secrets.PATH }}"  -Force
       if: ${{ github.event.inputs.scan == 'yes' }}
    
     - name: Step-10 Check Servicenow CR Number Status
