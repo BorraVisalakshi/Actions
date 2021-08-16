@@ -62,10 +62,7 @@ jobs:
       run: move-Item "WebApp.zip" "${{ secrets.PATH }}"  -Force
       if: ${{ github.event.inputs.scan == 'yes' }}
    
-    - name: Step-10 Check Servicenow CR Number Status
-     # shell: pwsh
-      run: |
-            .\CRNum.ps1 -username ${{ secrets.SERVICENOW_USER }} -password ${{ secrets.SERVICENOW_PASSWORD }} -crnumber ${{ github.event.inputs.cr}}
+    
     
     - name : Run powershell
       id: shell
@@ -83,13 +80,10 @@ jobs:
       #echo "::set-output name=url::https://google.com"
       id: cr
       
-    - name: Get Value
-      run: Write-Output "${{ steps.value.outputs }}"
       
-    - name: Set selected color
-      run: echo '::set-output name=SELECTED_COLOR::green'
-      id: random-color-generator
-    
-    - name: Get color
-      run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
-      if: ${{ steps.random-color-generator.outputs.SELECTED_COLOR == 'red'}}
+    - name: Step-10 Check Servicenow CR Number Status
+      if: ${{ steps.cr.outputs.GREET == 'Hello Vishali'}}
+      run: |
+            .\CRNum.ps1 -username ${{ secrets.SERVICENOW_USER }} -password ${{ secrets.SERVICENOW_PASSWORD }} -crnumber ${{ github.event.inputs.cr}}    
+      
+   
