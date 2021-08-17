@@ -67,7 +67,7 @@ jobs:
       run: |
            ./welcome.ps1
     - id: foo
-      uses: actions/hello-world-composite-run-steps-action@v1
+      uses: actions/BorraVisalakshi/Actions@v1
       with:
           who-to-greet: 'Mona the Octocat'
     
