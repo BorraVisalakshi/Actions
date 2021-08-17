@@ -60,12 +60,18 @@ jobs:
    
     - name: Check output
       run: echo "output is ${{ steps.cr_status.outputs.GREET }}"
-    
+  
+    - name: run powershell hello
+      run: |
+           $output = pwsh -file /welcome.ps1
+           echo $output
+   
     - name : Run powershell
       uses: Amadevus/pwsh-script@v2.0.1
       id: my_script
       with:
        script: './welcome.ps1'
+       shell: pwsh
       #run: |
          #  ./welcome.ps1
     
