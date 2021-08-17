@@ -27,6 +27,12 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
       
-      - name: Pause for 25 seconds
-        run: |
-          sleep 25
+      - uses: convictional/trigger-workflow-and-wait@v1.3.0
+        with:
+          owner: BorraVisalakshi
+          repo: Actions
+          github_token: ${{ secrets.GITHUB_PAT }}
+          workflow_file_name: main.yml
+          
+
+      
