@@ -76,4 +76,6 @@ jobs:
       run: |
             .\CRNum.ps1 -username ${{ secrets.SERVICENOW_USER }} -password ${{ secrets.SERVICENOW_PASSWORD }} -crnumber ${{ github.event.inputs.cr}}    
       
-   
+    - name: Pause for 25 seconds
+      run: |
+          sleep 25
