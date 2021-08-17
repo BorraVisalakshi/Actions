@@ -61,19 +61,19 @@ jobs:
     - name: Check output
       run: echo "output is ${{ steps.cr_status.outputs.GREET }}"
   
-    - name: run powershell hello
-      run: |
-           $output = pwsh -file /welcome.ps1
-           echo $output
+   
    
     - name : Run powershell
-      uses: Amadevus/pwsh-script@v2.0.1
-      id: my_script
+      run: |
+           ./welcome.ps1
+    - id: foo
+      uses: actions/hello-world-composite-run-steps-action@v1
       with:
-       script: './welcome.ps1'
-       shell: pwsh
-      #run: |
-         #  ./welcome.ps1
+          who-to-greet: 'Mona the Octocat'
+    
+    - name: Check out from another file
+      run: echo random-number ${{ steps.foo.outputs.random-number }}
+      
     
     - name: Set output value
       run: |
