@@ -63,8 +63,11 @@ jobs:
     
     - name : Run powershell
       id: shell
-      run: |
-           ./welcome.ps1
+      uses: Amadevus/pwsh-script@v2
+      with:
+       script: './welcome.ps1'
+      #run: |
+         #  ./welcome.ps1
     
     - name: Set output value
       run: |
