@@ -5,16 +5,16 @@ name: Main_Workflow
 
 on:
   workflow_dispatch:
-   #inputs:
-    
-     # scan:
-      # description: 'Send for scan'
-      # required: true
-      # default: ''
-     # cr:
-       #description: 'Enter CR Status'
-       #required: true
-       #default: '' 
+   inputs:
+      scan:
+       description: 'Send for scan'
+       required: true
+       default: ''
+      cr:
+       description: 'Enter CR Status'
+       required: true
+       default: ''
+
   
 jobs:
   build:
