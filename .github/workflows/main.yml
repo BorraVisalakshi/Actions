@@ -21,9 +21,7 @@ jobs:
     name: Deploying to Local Weblogic Server
     runs-on: self-hosted
     
-    #outputs:
-     # value: ${{ steps.cr_status.outputs.GREET }}
-
+  
     steps:
     #Checking out the code
     - name: Step-1 Checkout the code
@@ -62,26 +60,12 @@ jobs:
       run: echo "output is ${{ steps.cr_status.outputs.GREET }}"
   
    
-   
     - name : Run powershell
       run: |
            ./welcome.ps1
-    - id: foo
-      uses: actions/BorraVisalakshi/Actions@v1
-      with:
-          who-to-greet: 'Mona the Octocat'
     
-    - name: Check out from another file
-      run: echo random-number ${{ steps.foo.outputs.random-number }}
       
-    
-    - name: Set output value
-      run: |
-            Write-Output "::set-output name=GREET::$(./welcome.ps1)"
-      id: cr_status
-      
-      
-    - name: Step-10 Check Servicenow CR Number Status
+    - name: Check Servicenow CR Number Status
       run: |
             .\CRNum.ps1 -username ${{ secrets.SERVICENOW_USER }} -password ${{ secrets.SERVICENOW_PASSWORD }} -crnumber ${{ github.event.inputs.cr}}    
       
