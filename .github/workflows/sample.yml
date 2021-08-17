@@ -26,6 +26,7 @@ jobs:
         with:
           workflow: Main_Workflow
           token: ${{ secrets.PAT }}
+          inputs: '{ "scan": "yes", "cr": "CHG0030005" }'
 
       
       # Runs a set of commands using the runners shell
