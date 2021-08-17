@@ -22,7 +22,7 @@ jobs:
         run: echo Hello, world!
       
       - name: Trigger pipeline
-        uses: mego22/actions-workflow-pipeline@post-data
+        uses:  mego22/actions-workflow-pipeline@v2
         with:
           token: "${{ secrets.TOKEN }}"
           dispatch: '[{"org": "BorraVisalakshi" ,"repo": "Actions", "branch": "main", "workflow": "main.yml"}]'
