@@ -4,8 +4,6 @@
 name: Deploying to Weblogic Local
 
 on:
-  repository_dispatch:
-   types: call_main
   workflow_dispatch:
    inputs:
     
