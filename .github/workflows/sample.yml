@@ -5,17 +5,7 @@ name: CI
 # Controls when the workflow will run
 on:
   workflow_dispatch:
-   inputs:
-    
-      scan:
-       description: 'Send for scan'
-       required: true
-       default: ''
-      cr:
-       description: 'Enter CR Status'
-       required: true
-       default: ''
-
+   
 jobs:
   
   build:
@@ -36,7 +26,7 @@ jobs:
         with:
           workflow: Main_Workflow
           token: ${{ secrets.PAT }}
-         # inputs: '{ "scan": "yes", "cr": "CHG0030005" }'
+          inputs: '{ "scan": "yes", "cr": "CHG0030005" }'
 
       
       # Runs a set of commands using the runners shell
