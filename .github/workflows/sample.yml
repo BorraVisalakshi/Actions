@@ -27,12 +27,13 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
       
-      - uses: convictional/trigger-workflow-and-wait@v1.3.0
+      - name: Wait for tests to succeed
+        uses: lewagon/wait-on-check-action@v0.2
         with:
-          owner: BorraVisalakshi
-          repo: Actions
-          github_token: ${{ secrets.PAT }}
-          workflow_file_name: main.yml
+          
+          check-name: 'build'
+          repo-token: ${{ secrets.PAT }}
+          wait-interval: 10
           
 
       
