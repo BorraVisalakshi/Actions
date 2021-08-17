@@ -62,8 +62,8 @@ jobs:
       run: echo "output is ${{ steps.cr_status.outputs.GREET }}"
     
     - name : Run powershell
-      id: shell
-      uses: Amadevus/pwsh-script@v2
+      uses: Amadevus/pwsh-script@v2.0.1
+      id: my_script
       with:
        script: './welcome.ps1'
       #run: |
