@@ -63,12 +63,19 @@ jobs:
     - name : Run powershell
       run: |
            ./welcome.ps1
+           
     
-      
     - name: Check Servicenow CR Number Status
       run: |
             .\CRNum.ps1 -username ${{ secrets.SERVICENOW_USER }} -password ${{ secrets.SERVICENOW_PASSWORD }} -crnumber ${{ github.event.inputs.cr}}    
-      
+            echo 'output is' $output
+     
+    - name: Set Output
+      run: echo "::set-output name=power::${$output}"
+      id: powershell
+    
+    - name: Get Output
+      run: echo "output is ${{ steps.powershell.outputs.power }}"  
     - name: Pause for 25 seconds
       run: |
           sleep 25
