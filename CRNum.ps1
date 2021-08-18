@@ -17,5 +17,6 @@ If($response_json.records[0].approval -ne 'approved')
 }
 else
 {
-	Write-Output $response_json.records[0].approval
+	$output = Write-Output $response_json.records[0].approval
+	$output | Get-Member
 }
