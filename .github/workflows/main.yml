@@ -64,7 +64,7 @@ jobs:
     - name : Run powershell
       run: |
            ./welcome.ps1
-      if: ${{ steps.scan_status.always() }}     
+      if: ${{ always() }}  
     
     - name: Check Servicenow CR Number Status
       run: |
