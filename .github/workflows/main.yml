@@ -53,9 +53,10 @@ jobs:
     
   #Move the Zip to D: drive
     - name: Step-6 Move Directory to D drive
-      run: move-Item "WebApp.zip" "${{ secrets.PATH }}"  -Force
+      run: move-Item "WebApp.zip" "${{ secrets.PATH }}"  
       if: ${{ github.event.inputs.scan == 'yes' }}
-   
+      id: scan_status
+      
     - name: Check output
       run: echo "output is ${{ steps.cr_status.outputs.GREET }}"
   
@@ -63,7 +64,7 @@ jobs:
     - name : Run powershell
       run: |
            ./welcome.ps1
-           
+      if: ${{ steps.scan_status.always() }}     
     
     - name: Check Servicenow CR Number Status
       run: |
