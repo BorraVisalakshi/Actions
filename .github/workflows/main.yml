@@ -19,7 +19,7 @@ on:
   
 jobs:
   build:
-    name: Deploying to Local Weblogic Server
+    
     runs-on: self-hosted
     
   
