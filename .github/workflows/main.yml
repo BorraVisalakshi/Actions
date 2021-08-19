@@ -4,6 +4,8 @@
 name: Main_Workflow
 
 on:
+  repository_dispatch:
+    types: [dev]
   workflow_dispatch:
    inputs:
       scan:
