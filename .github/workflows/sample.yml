@@ -33,7 +33,7 @@ jobs:
         #  token: ${{ secrets.PAT }}
          # inputs: '{ "scan": "yes", "cr": "${{ github.event.inputs.crnum }}" }'
       - name: Invoke workflow without inputs. Wait for result
-        uses: jonas-schievink/workflow-proxy@v1
+        uses: aurelien-baudet/workflow-dispatch@v2
         with:
           workflow: Main_Workflow
           token: ${{ secrets.PAT }}
