@@ -32,16 +32,13 @@ jobs:
        #   workflow: Main_Workflow
         #  token: ${{ secrets.PAT }}
          # inputs: '{ "scan": "yes", "cr": "${{ github.event.inputs.crnum }}" }'
-      - name: Deploy Your Service
-        uses: adityakar/workflow-dispatcher@v1.0
+      - name: Invoke workflow without inputs. Wait for result
+        uses: jonas-schievink/workflow-proxy@v1
         with:
-          owner: your-github-org
-          repo: your-repo
+          workflow: Main_Workflow
           token: ${{ secrets.PAT }}
-          event_type: dev
-          wait_time: 5
-          max_time: 180
-
+          inputs: '{ "scan": "yes", "cr": "${{ github.event.inputs.crnum }}" }'
+        
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
