@@ -54,7 +54,7 @@ jobs:
     
   #Move the Zip to D: drive
     - name: Step-6 Move Directory to D drive
-      run: move-Item "WebApp.zip" "${{ secrets.PATH }}"  
+      run: move-Item "WebApp.zip" "${{ secrets.PATH }}"  -Force
       if: ${{ github.event.inputs.scan == 'yes' }}
       id: scan_status
       
