@@ -61,10 +61,10 @@ jobs:
     - name: Check output
       run: echo "output is ${{ steps.cr_status.outputs.GREET }}"
       
-    - name: Monitor coverage
-      uses: slavcodev/coverage-monitor-action@1.2.0
+    - name: Run codacy-coverage-reporter
+      uses: codacy/codacy-coverage-reporter-action@v1
       with:
-          github_token: ${{ secrets.PAT }}
-          clover_file: "Actions/clover.xml"
+          project-token: ${{ secrets.PAT }}
+          coverage-reports: cobertura.xml
           
    
